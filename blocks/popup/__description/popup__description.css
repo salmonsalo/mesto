@@ -1,0 +1,14 @@
+.popup__description {
+    border: 0;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    background-color: transparent;
+    margin-bottom: 45px;
+    padding: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .popup__description {
+        margin-bottom: 48px;
+    }
+    
+}

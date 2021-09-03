@@ -1,0 +1,28 @@
+.profile__info-button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 19px;
+}
+
+.profile__info-button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__info-button {
+        top: 15px;
+        bottom: 34px;
+        left: 312px;
+        right: 0; 
+    }
+    
+}

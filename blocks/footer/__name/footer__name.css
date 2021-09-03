@@ -1,0 +1,16 @@
+.footer__name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #545454;
+}
+
+@media screen and (min-width:1280px) {
+    .footer__name {
+        font-size: 18px;
+        line-height: 22px;
+    }
+} 

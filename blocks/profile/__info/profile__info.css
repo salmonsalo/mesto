@@ -1,0 +1,13 @@
+.profile__info {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__info {
+        position: absolute;
+        left: 150px;
+    }
+    
+}

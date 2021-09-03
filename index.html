@@ -2,9 +2,85 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
-
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.svg" alt="Логотип Место">
+        </header>
+        <main class="content">
+            <section class="profiles">
+                <ul class="profile">
+                    <li class="profile__avatars">
+                        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+                    </li>
+                    <li class="profile__info">
+                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <h2 class="profile__info-description">Исследователь океана</h2>
+                        <button class="profile__info-button"><img class="profile__info-button-image" src="./images/editbutton.svg" alt="Кнопка_редактирования_информации"></button>
+                    </li>
+                    <li class="profile__button">
+                        <button class="profile__button-add"></button>
+                    </li>
+                </ul>
+            </section>
+            <section class="elements">
+                <ul class="cards">
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
+                        <h3 class="card__name">Карачаевск</h3>
+                        <button class="card__button"></button>
+                    </li>
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Гора Эльбрус">
+                        <h3 class="card__name">Гора Эльбрус</h3>
+                        <button class="card__button"></button>
+                    </li>
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Домбай">
+                        <h3 class="card__name">Домбай</h3>
+                        <button class="card__button"></button>
+                    </li>
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Гора Эльбрус">
+                        <h3 class="card__name">Гора Элбрус</h3>
+                        <button class="card__button"></button>
+                    </li>
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Домбай">
+                        <h3 class="card__name">Домбай</h3>
+                        <button class="card__button"></button>
+                    </li>
+                    <li class="card">
+                        <img class="card__img" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
+                        <h3 class="card__name">Карачаево-Черкессия</h3>
+                        <button class="card__button"></button>
+                    </li>    
+                </ul>
+            </section>
+            <section class="popup">
+                <div class="popup__container">
+                    <button class="popup__close"></button>
+                    <div class="popup__content">
+                        <h3 class="popup__title">Редактировать профиль</h3>
+                        <form class="popup__form">
+                            <fieldset class="popup__input">
+                                <input type="text" name="name_popup" class="popup__name popup__text" placeholder="Имя" required>
+                                <input type="text" name="description_popup" class="popup__description popup__text" placeholder="О себе" required>
+                                <button type="submit" class="popup__button">Сохранить</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <h4 class="footer__name">&copy;2020 Mesto Russia</h4>
+        </footer>
+    </div>
+    <script src="./scripts/index.js"></script>
 </body>
 </html> 
