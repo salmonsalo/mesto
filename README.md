@@ -22,4 +22,4 @@
 
 **GH-pages**
 
-* [Страница]
+* [Страница] https://salmonsalo.github.io/mesto/index.html
