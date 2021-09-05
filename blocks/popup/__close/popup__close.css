@@ -16,11 +16,10 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .popup__close  {
+    .popup__close {
         width: 40px;
         height: 40px;
         top: -48.28px;
         right: -48.28px;
     }
-    
 }

@@ -4,14 +4,11 @@
     background: #fff;
     border-radius: 15px;
     position: relative;
-    
 }
-
 
 @media screen and (min-width: 1024px) {
     .popup__container {
         width: 430px;
         height: 330px;
     }
-    
 }

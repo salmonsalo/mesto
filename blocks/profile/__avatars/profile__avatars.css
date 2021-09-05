@@ -5,7 +5,6 @@
 
 @media screen and (min-width: 1280px) {
     .profile__avatars {
-       margin: 0;
+        margin: 0;
     }
-    
 }

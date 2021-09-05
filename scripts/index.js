@@ -12,7 +12,7 @@ const formButton = document.querySelector('.popup__button');
 function togglePopup() {
     if (!popupElement.classList.contains('popup__is-opened')) {
         nameInput.value = nameProfile.textContent;
-        jobInput.value  = jobProfile.textContent;
+        jobInput.value = jobProfile.textContent;
     }
     popupElement.classList.toggle('popup__is-opened');
 }
@@ -22,27 +22,18 @@ popupCloseButtonElement.addEventListener('click', togglePopup);
 
 popupElement.addEventListener('click', togglePopup);
 
-document.querySelector('.popup__container').addEventListener(
-    'click',
-    function(event) {
-        event.stopPropagation();
-    } 
-);
+document.querySelector('.popup__container').addEventListener('click', function(event) { event.stopPropagation(); });
 
-formElement.addEventListener('submit',
-    function(event) {
-        event.preventDefault();
-    }
-);
+formElement.addEventListener('submit', function(event) { event.preventDefault(); });
 
 
 //like
 function likeClick(event) {
-    const likeButton = event.target; 
+    const likeButton = event.target;
     likeButton.classList.toggle('card__button_active');
 }
 
-const likeButtons = document.querySelectorAll('.card__button'); 
+const likeButtons = document.querySelectorAll('.card__button');
 likeButtons.forEach((likeButton) => {
     likeButton.addEventListener('click', likeClick);
-}); 
+});

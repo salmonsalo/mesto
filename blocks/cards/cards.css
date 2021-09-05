@@ -5,19 +5,16 @@
     border-radius: 10px;
     display: grid;
     gap: 20px 17px;
-    
 }
 
 @media screen and (min-width: 768px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
     }
-    
 }
 
 @media screen and (min-width: 1024px) {
     .cards {
         grid-template-columns: repeat(3, 1fr);
     }
-    
 }

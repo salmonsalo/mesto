@@ -1,16 +1,11 @@
 @import "../normalize/normalize.css";
-
+@import "../fonts/fonts.css";
 @import "../blocks/body/body.css";
-
 @import "../blocks/page/page.css";
-
 @import "../blocks/header/header.css";
 @import "../blocks/header/__logo/header__logo.css";
-
 @import "../blocks/content/content.css";
-
 @import "../blocks/profiles/profiles.css";
-
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__avatars/profile__avatars.css";
 @import "../blocks/profile/__avatar/profile__avatar.css";
@@ -22,19 +17,15 @@
 @import "../blocks/profile/__button/profile__button.css";
 @import "../blocks/profile/__button-image/profile__button-image.css";
 @import "../blocks/profile/__button-add/profile__button-add.css";
-
 @import "../blocks/elements/elements.css";
-
 @import "../blocks/cards/cards.css";
-
 @import "../blocks/card/card.css";
 @import "../blocks/card/__img/card__img.css";
 @import "../blocks/card/__name/card__name.css";
 @import "../blocks/card/__button/card__button.css";
-
+@import "../blocks/card/__button/_active/card__button_active.css";
 @import "../blocks/footer/__name/footer__name.css";
 @import "../blocks/footer/footer.css";
-
 @import "../blocks/popup/popup.css";
 @import "../blocks/popup/__close/popup__close.css";
 @import "../blocks/popup/__title/popup__title.css";
@@ -46,8 +37,4 @@
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__button/popup__button.css";
 @import "../blocks/popup/__is-opened/popup__is-opened.css";
-
 @import "../blocks/popup/__text/popup__text.css";
-
-@import "../blocks/card/__button/_active/card__button_active.css";
-

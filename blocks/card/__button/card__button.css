@@ -1,10 +1,10 @@
 .card__button {
     background-color: transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
-    outline:none;
+    outline: none;
     padding: 0;
     width: 22px;
     height: 19px;

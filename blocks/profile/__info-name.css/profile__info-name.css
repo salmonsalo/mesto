@@ -1,5 +1,5 @@
 .profile__info-name {
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 26px;
@@ -7,16 +7,11 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    
 }
 
 @media screen and (min-width: 1280px) {
     .profile__info-name {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 500;
         font-size: 42px;
         line-height: 48px;
     }
-    
 }
