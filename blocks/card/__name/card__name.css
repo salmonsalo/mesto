@@ -12,4 +12,6 @@
     white-space: nowrap;
     overflow: hidden;
     width: 190px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

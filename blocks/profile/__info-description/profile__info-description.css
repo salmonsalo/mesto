@@ -10,6 +10,8 @@
     grid-column-start: 1;
     grid-row-start: 2;
     grid-column-end: 2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @media screen and (min-width: 1280px) {
