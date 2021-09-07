@@ -7,11 +7,6 @@
 @media screen and (min-width: 1280px) {
     .profile__button {
         margin: 0;
-        position: absolute;
-        top: 35px;
-        bottom: 35px;
-        right: 0;
-        left: 730px;
         width: 150px;
     }
 }

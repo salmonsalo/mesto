@@ -1,15 +1,21 @@
 .profile {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 42px 19px 36px 19px;
+    max-width: 88.125%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+}
+
+@media screen and (min-width: 321px) {
+    .profile {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (min-width: 1280px) {
     .profile {
+        max-width: 68.75%;
         flex-direction: row;
         justify-content: space-between;
     }

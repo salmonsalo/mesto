@@ -1,17 +1,6 @@
 .elements {
-    margin: 38px 19px 48px 19px;
+    margin: 0 auto;
+    max-width: 88.125%;
     display: flex;
     justify-content: center;
-}
-
-@media screen and (min-width: 1024px) {
-    .elements {
-        margin: 40px 65px 50px 65px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .elements {
-        margin: 50px 200px 66px 200px;
-    }
 }

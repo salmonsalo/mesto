@@ -1,15 +1,13 @@
 .popup__input {
-    border: none;
-    display: flex;
-    flex-direction: column;
+    border: 0;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    background-color: transparent;
+    margin-bottom: 30px;
     padding: 0;
-    margin-right: 22px;
-    margin-left: 22px;
-}
-
-@media screen and (min-width: 1024px) {
-    .popup__input {
-        margin-right: 36px;
-        margin-left: 36px;
-    }
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    height: 27px;
 }
