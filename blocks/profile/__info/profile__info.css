@@ -1,17 +1,14 @@
 .profile__info {
     color: #fff;
     display: grid;
-    grid-template-columns: 200px 18px;
-    align-items: flex-end;
+    grid-template-columns: repeat(2, max-content);
+    align-items: baseline;
     gap: 14px 0;
 }
 
 @media screen and (min-width: 1280px) {
     .profile__info {
         grid-template-columns: 300px 24px;
-        align-items: flex-end;
         gap: 16px 18px;
-        position: relative;
-        right: 100px;
     }
 }

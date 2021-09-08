@@ -1,11 +1,11 @@
 .footer {
     max-width: 88.125%;
-    margin: 0 auto 36px auto;
+    margin: 48px auto 36px auto;
 }
 
 @media screen and (min-width:1280px) {
     .footer {
         max-width: 68.75%;
-        margin: 0 auto 60px auto;
+        margin: 66px auto 60px auto;
     }
 }

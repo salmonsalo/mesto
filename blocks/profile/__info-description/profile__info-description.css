@@ -14,6 +14,7 @@
     white-space: nowrap;
     overflow: hidden;
     width: 190px;
+    grid-column: 1/3;
 }
 
 @media screen and (min-width: 1280px) {

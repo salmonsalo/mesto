@@ -13,11 +13,11 @@ const formElement = document.querySelector('.popup__form');
 const formButton = document.querySelector('.popup__button');
 
 function togglePopup() {
-    if (!popupElement.classList.contains('popup__opened')) {
+    if (!popupElement.classList.contains('popup_opened')) {
         nameInput.value = nameProfile.textContent;
         jobInput.value = jobProfile.textContent;
     }
-    popupElement.classList.toggle('popup__opened');
+    popupElement.classList.toggle('popup_opened');
 }
 
 popupOpenButtonElement.addEventListener('click', togglePopup);
@@ -32,16 +32,4 @@ formElement.addEventListener('submit', function(event) {
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
     togglePopup();
-});
-
-
-//like
-function likeClick(event) {
-    const likeButton = event.target;
-    likeButton.classList.toggle('card__button_active');
-}
-
-const likeButtons = document.querySelectorAll('.card__button');
-likeButtons.forEach((likeButton) => {
-    likeButton.addEventListener('click', likeClick);
 });

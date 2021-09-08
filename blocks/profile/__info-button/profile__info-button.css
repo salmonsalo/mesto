@@ -8,7 +8,7 @@
     padding: 0;
     width: 18px;
     height: 18px;
-    background: url(../../../images/editbutton320.svg);
+    background: url(../../../images/editbutton.svg);
 }
 
 .profile__info-button:hover {
@@ -20,6 +20,6 @@
     .profile__info-button {
         width: 24px;
         height: 24px;
-        background: url(../../../images/editbutton.svg);
+        background-size: 24px 24px;
     }
 }
