@@ -1,6 +1,5 @@
 .profile__button {
     background-color: transparent;
-    background-repeat: no-repeat;
     border: none;
     cursor: pointer;
     overflow: hidden;
@@ -21,8 +20,6 @@
     .profile__button {
         margin: 0 0 0 238px;
         width: 150px;
-        background-repeat: no-repeat;
-        background-size: 188%;
         background-position: center;
         border: 2px solid #fff;
     }
