@@ -1,6 +1,19 @@
 .elements {
     margin: 0 auto;
     max-width: 88.125%;
-    display: flex;
+    display: grid;
+    gap: 20px 17px;
     justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .elements {
+        grid-template-columns: repeat(2, max-content);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .elements {
+        grid-template-columns: repeat(3, max-content);
+    }
 }
