@@ -87,12 +87,13 @@ function likeClick(event) {
 
 const addCard = (data) => {
     const cardElement = cardsTemplate.querySelector('.card').cloneNode(true);
-    cardElement.querySelector('.card__img').src = data.link;
-    cardElement.querySelector('.card__img').alt = 'Изображение';
+    const cardImgElement = cardElement.querySelector('.card__img');
+    cardImgElement.src = data.link;
+    cardImgElement.alt = 'Изображение';
     cardElement.querySelector('.card__name').textContent = data.name;
     cardElement.querySelector('.card__delete').addEventListener('click', removeCardHandler);
     cardElement.querySelector('.card__button').addEventListener('click', likeClick);
-    cardElement.querySelector('.card__img').addEventListener('click', openBigImgPopup);
+    cardImgElement.addEventListener('click', openBigImgPopup);
 
     cardsElement.prepend(cardElement);
 }
@@ -128,6 +129,6 @@ function openBigImgPopup(event) {
 
     const img = event.target;
     popupBigImg.src = img.src;
-    const nameImg = event.target.parentNode.textContent;
+    const nameImg = img.parentNode.textContent;
     popupBigImgName.textContent = nameImg;
 };
