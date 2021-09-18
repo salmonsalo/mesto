@@ -28,12 +28,17 @@
 @import "../blocks/popup/__fieldset/popup__fieldset.css";
 @import "../blocks/popup/__name/popup__name.css";
 @import "../blocks/popup/__input/popup__input.css";
+@import "../blocks/popup/__input/_type/popup__input_type_error.css";
 @import "../blocks/popup/__form/popup__form.css";
 @import "../blocks/popup/__description/popup__description.css";
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__button/popup__button.css";
+@import "../blocks/popup/__button/_valid/popup__button_valid.css";
+@import "../blocks/popup/__button/_invalid/popup__button_invalid.css";
 @import "../blocks/popup/__text/popup__text.css";
 @import "../blocks/popup/_opened/popup_opened.css";
 @import "../blocks/popup/__big-size-image/popup__big-size-image.css";
 @import "../blocks/popup/__content/popup__content.css";
 @import "../blocks/popup/__big-size-name/popup__big-size-name.css";
+@import "../blocks/error/error.css";
+@import "../blocks/error/_visible/popup__error_visible.css";

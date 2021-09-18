@@ -18,14 +18,22 @@ const jobProfile = document.querySelector('.profile__info-description');
 const formElement = document.querySelector('.popup__form');
 const formButton = document.querySelector('.popup__button');
 
-popupCloseButtonElements.forEach((item) => {
-    item.addEventListener('click', (evt) => {
-        togglePopup(evt.target.closest('.popup'));
-    });
-});
+const openPopup = (popupElement) => { 
+    popupElement.classList.add('popup_opened'); 
+}; 
 
-popupOpenButtonElement.addEventListener('click', () => { togglePopup(popupProfileElement) });
-popupOpenProfileButton.addEventListener('click', () => { togglePopup(popupCardElement) });
+popupCloseButtonElements.forEach((item) => { 
+    item.addEventListener('click', (evt) => { 
+        closePopup(evt.target.closest('.popup')); 
+    }); 
+}); 
+
+function closePopup(popupElement) { 
+    popupElement.classList.remove('popup_opened'); 
+}; 
+
+popupOpenButtonElement.addEventListener('click', () => { openPopup(popupProfileElement) }); 
+popupOpenProfileButton.addEventListener('click', () => { openPopup(popupCardElement) }); 
 
 const openProfilePopup = () => {
     nameInput.value = nameProfile.textContent;
@@ -34,17 +42,30 @@ const openProfilePopup = () => {
 
 popupOpenButtonElement.addEventListener('click', () => openProfilePopup(popupProfileElement));
 
-function togglePopup(popupElement) {
-    popupElement.classList.toggle('popup_opened');
-}
-
 formElement.addEventListener('submit', function(event) {
     event.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    togglePopup();
+    closePopup();
 });
 
+// ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ОВЕРЛЕЙ
+document.addEventListener('mousedown', (event) => {
+    event.stopPropagation();
+    if (!event.target.closest('.popup__container')) {
+      popupProfileElement.classList.remove('popup_opened');
+      popupCardElement.classList.remove('popup_opened');
+      popupOpenBigImg.classList.remove('popup_opened');
+    }
+  });
+// ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key == 'Escape') {
+        popupProfileElement.classList.remove('popup_opened');
+        popupCardElement.classList.remove('popup_opened');
+        popupOpenBigImg.classList.remove('popup_opened');
+    }
+});
 //ДОБАВЛЕНИЕ КАРТОЧЕК
 const initialCards = [{
         name: 'Архыз',
@@ -125,7 +146,7 @@ const popupBigImgName = popupOpenBigImg.querySelector('.popup__big-size-name');
 
 function openBigImgPopup(event) {
 
-    togglePopup(popupOpenBigImg);
+    openPopup(popupOpenBigImg);
 
     const img = event.target;
     popupBigImg.src = img.src;
