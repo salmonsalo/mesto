@@ -33,10 +33,12 @@ const hasNotInputValues = (inputList) => {
 };
 
 const disableSubmitButton = (buttonElement, inactiveButtonClass) => {
+    buttonElement.setAttribute("disabled", "disabled");
     buttonElement.classList.add(inactiveButtonClass);
 };
 
 const enableSubmitButton = (buttonElement, inactiveButtonClass) => {
+    buttonElement.removeAttribute("disabled", "disabled");
     buttonElement.classList.remove(inactiveButtonClass);
 };
 
@@ -72,12 +74,3 @@ const enableValidation = (config) => {
         setEventListeners(formElement, config.inputSelector, config.submitButtonSelector, config.inputErrorClass, config.errorClass, config.inactiveButtonClass, config.inactiveButtonClass);
     });
 };
-
-enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'error_visible'
-});

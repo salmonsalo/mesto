@@ -1,3 +1,12 @@
+const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'error_visible'
+};
+enableValidation(validationConfig);
 //ОТКРЫТИЕ И ЗАКРЫТИЕ ПОПАПОВ
 const popupElement = document.querySelector('.popup');
 
@@ -16,20 +25,24 @@ const nameProfile = document.querySelector('.profile__info-name');
 const jobProfile = document.querySelector('.profile__info-description');
 
 const formElement = document.querySelector('.popup__form');
+const formProfileElement = document.querySelector('.popup__form-profile');
+const formCardElement = document.querySelector('.popup__form-card');
 const formButton = document.querySelector('.popup__button');
 
-const openPopup = (popupElement) => { 
+function openPopup(popupElement) { 
     popupElement.classList.add('popup_opened'); 
+    document.addEventListener("keydown", closePopupEsc);
 }; 
 
 popupCloseButtonElements.forEach((item) => { 
-    item.addEventListener('click', (evt) => { 
-        closePopup(evt.target.closest('.popup')); 
+    item.addEventListener('click', (event) => { 
+        closePopup(event.target.closest('.popup')); 
     }); 
 }); 
 
 function closePopup(popupElement) { 
     popupElement.classList.remove('popup_opened'); 
+    document.removeEventListener("keydown", closePopupEsc);
 }; 
 
 popupOpenButtonElement.addEventListener('click', () => { openPopup(popupProfileElement) }); 
@@ -42,59 +55,35 @@ const openProfilePopup = () => {
 
 popupOpenButtonElement.addEventListener('click', () => openProfilePopup(popupProfileElement));
 
-formElement.addEventListener('submit', function(event) {
+formProfileElement.addEventListener('submit', function(event) {
     event.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    closePopup();
+    closePopup(popupProfileElement);
 });
 
 // ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ОВЕРЛЕЙ
 document.addEventListener('mousedown', (event) => {
     event.stopPropagation();
-    if (!event.target.closest('.popup__container')) {
-      popupProfileElement.classList.remove('popup_opened');
-      popupCardElement.classList.remove('popup_opened');
-      popupOpenBigImg.classList.remove('popup_opened');
-    }
-  });
-// ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ESC
-document.addEventListener('keydown', (event) => {
-    if (event.key == 'Escape') {
-        popupProfileElement.classList.remove('popup_opened');
-        popupCardElement.classList.remove('popup_opened');
-        popupOpenBigImg.classList.remove('popup_opened');
+    if (event.target.classList.contains('popup_opened')) {
+        closePopup(event.target.closest('.popup'));
     }
 });
-//ДОБАВЛЕНИЕ КАРТОЧЕК
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
+// ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ESC
+const closePopupEsc = (event) => {
+    if (event.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
+    }
+};
+
+//ДОБАВЛЕНИЕ КАРТОЧЕК
 const cardsElement = document.querySelector('.elements');
 const cardsTemplate = document.querySelector('#card-template').content;
+
+const cardTitle = popupCardElement.querySelector('.popup__input_type_title');
+const cardLink = popupCardElement.querySelector('.popup__input_type_link');
 
 
 const removeCardHandler = (event) => {
@@ -106,21 +95,22 @@ function likeClick(event) {
     likeButton.classList.toggle('card__button_active');
 }
 
-const addCard = (data) => {
+const createCard = (data) => {
     const cardElement = cardsTemplate.querySelector('.card').cloneNode(true);
     const cardImgElement = cardElement.querySelector('.card__img');
     cardImgElement.src = data.link;
-    cardImgElement.alt = 'Изображение';
+    cardImgElement.alt = data.name;
     cardElement.querySelector('.card__name').textContent = data.name;
     cardElement.querySelector('.card__delete').addEventListener('click', removeCardHandler);
     cardElement.querySelector('.card__button').addEventListener('click', likeClick);
-    cardImgElement.addEventListener('click', openBigImgPopup);
+    cardImgElement.addEventListener('click', () => openBigImgPopup(data));
 
-    cardsElement.prepend(cardElement);
+    return cardElement;
 }
 
-const cardTitle = popupCardElement.querySelector('.popup__input_type_title');
-const cardLink = popupCardElement.querySelector('.popup__input_type_link');
+const addCard = (data) => {
+    cardsElement.prepend(createCard(data)); 
+}
 
 const postingCardHandler = (event) => {
     event.preventDefault();
@@ -129,8 +119,8 @@ const postingCardHandler = (event) => {
         name: cardTitle.value,
         link: cardLink.value
     });
-
-    popupCardElement.classList.toggle('popup_opened');
+    formCardElement.reset();
+    closePopup(popupCardElement);
 };
 
 popupCardElement.addEventListener('submit', postingCardHandler);
@@ -144,12 +134,11 @@ const popupOpenBigImg = document.querySelector('.popup_type_big-img');
 const popupBigImg = popupOpenBigImg.querySelector('.popup__big-size-image');
 const popupBigImgName = popupOpenBigImg.querySelector('.popup__big-size-name');
 
-function openBigImgPopup(event) {
+function openBigImgPopup(data) {
 
+    popupBigImg.src = data.link;
+    popupBigImgName.textContent = data.name;
+    popupBigImg.alt = data.name;
+    
     openPopup(popupOpenBigImg);
-
-    const img = event.target;
-    popupBigImg.src = img.src;
-    const nameImg = img.parentNode.textContent;
-    popupBigImgName.textContent = nameImg;
 };
