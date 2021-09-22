@@ -28,6 +28,7 @@ const formElement = document.querySelector('.popup__form');
 const formProfileElement = document.querySelector('.popup__form-profile');
 const formCardElement = document.querySelector('.popup__form-card');
 const formButton = document.querySelector('.popup__button');
+const formAddButton = document.querySelector('.popup__button_add');
 
 function openPopup(popupElement) { 
     popupElement.classList.add('popup_opened'); 
@@ -112,7 +113,7 @@ const addCard = (data) => {
     cardsElement.prepend(createCard(data)); 
 }
 
-const postingCardHandler = (event) => {
+const postingCardHandler = (event, inactiveButtonClass) => {
     event.preventDefault();
 
     addCard({
@@ -121,6 +122,7 @@ const postingCardHandler = (event) => {
     });
     formCardElement.reset();
     closePopup(popupCardElement);
+    disableSubmitButton(formAddButton, inactiveButtonClass);
 };
 
 popupCardElement.addEventListener('submit', postingCardHandler);

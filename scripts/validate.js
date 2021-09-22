@@ -38,7 +38,7 @@ const disableSubmitButton = (buttonElement, inactiveButtonClass) => {
 };
 
 const enableSubmitButton = (buttonElement, inactiveButtonClass) => {
-    buttonElement.removeAttribute("disabled", "disabled");
+    buttonElement.removeAttribute("disabled");
     buttonElement.classList.remove(inactiveButtonClass);
 };
 
@@ -49,7 +49,7 @@ const toggleButtonState = (formElement, inputList, submitButtonSelector, inactiv
         disableSubmitButton(buttonElement, inactiveButtonClass);
     } else {
         enableSubmitButton(buttonElement, inactiveButtonClass);
-    }
+    }  
 };
 
 const setEventListeners = (formElement, inputSelector, submitButtonSelector, inputErrorClass, errorClass, inactiveButtonClass) => {
