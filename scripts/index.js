@@ -46,17 +46,19 @@ popupCloseButtonElements.forEach((item) => {
 function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
     document.removeEventListener("keydown", closePopupEsc);
+    document.addEventListener("mousedown", closePopupOvr);
 };
 
-popupOpenButtonElement.addEventListener('click', () => { openPopup(popupProfileElement) });
+popupOpenButtonElement.addEventListener('click', () => { openProfilePopup(popupProfileElement) });
 popupOpenProfileButton.addEventListener('click', () => { openPopup(popupCardElement) });
 
 const openProfilePopup = () => {
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
+
+    openPopup(popupProfileElement);
 }
 
-popupOpenButtonElement.addEventListener('click', () => openProfilePopup(popupProfileElement));
 
 formProfileElement.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -66,12 +68,13 @@ formProfileElement.addEventListener('submit', function(event) {
 });
 
 // ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ОВЕРЛЕЙ
-document.addEventListener('mousedown', (event) => {
+const closePopupOvr = ('mousedown', (event) => {
     event.stopPropagation();
     if (event.target.classList.contains('popup_opened')) {
         closePopup(event.target.closest('.popup'));
     }
-});
+})
+
 
 // ЗАКРЫТИЕ ПОПАПА КЛИКОМ НА ESC
 const closePopupEsc = (event) => {
@@ -79,11 +82,10 @@ const closePopupEsc = (event) => {
         const popupOpened = document.querySelector('.popup_opened');
         closePopup(popupOpened);
     }
-};
+}
 
 //ДОБАВЛЕНИЕ КАРТОЧЕК
 const cardsElement = document.querySelector('.elements');
-const cardsTemplate = document.querySelector('#card-template').content;
 
 const cardTitle = popupCardElement.querySelector('.popup__input_type_title');
 const cardLink = popupCardElement.querySelector('.popup__input_type_link');
@@ -110,6 +112,7 @@ const postingCardHandler = (event, inactiveButtonClass) => {
     cardsElement.prepend(createCard(сard));
     formCardElement.reset();
     closePopup(popupCardElement);
+    formAddButton.setAttribute("disabled", true);
 };
 
 popupCardElement.addEventListener('submit', postingCardHandler);

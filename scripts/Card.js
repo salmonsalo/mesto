@@ -17,15 +17,18 @@ export default class Card {
         this._element = this._getElement();
         this._setEventListeners();
 
-        this._element.querySelector('.card__img').src = this._link;
-        this._element.querySelector('.card__img').alt = this._name;
+        const cardImg = this._element.querySelector('.card__img');
+
+        cardImg.src = this._link;
+        cardImg.alt = this._name;
         this._element.querySelector('.card__name').textContent = this._name;
 
         return this._element;
     }
 
     _removeCard = () => {
-        this._element.closest('.card').remove();
+        this._element.remove();
+        this._element = null;
     }
 
     _likeCard() {
