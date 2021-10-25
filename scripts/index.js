@@ -10,8 +10,6 @@ const validationConfig = {
     errorClass: 'error_visible'
 };
 //ОТКРЫТИЕ И ЗАКРЫТИЕ ПОПАПОВ
-const popupElement = document.querySelector('.popup');
-
 const popupCloseButtonElements = document.querySelectorAll('.popup__close');
 
 const popupCardElement = document.querySelector('.popup_add_card');
@@ -26,15 +24,14 @@ const jobInput = document.querySelector('.popup__input_type_description');
 const nameProfile = document.querySelector('.profile__info-name');
 const jobProfile = document.querySelector('.profile__info-description');
 
-const formElement = document.querySelector('.popup__form');
 const formProfileElement = document.querySelector('.popup__form-profile');
 const formCardElement = document.querySelector('.popup__form-card');
-const formButton = document.querySelector('.popup__button');
 const formAddButton = document.querySelector('.popup__button_add');
 
 function openPopup(popupElement) {
     popupElement.classList.add('popup_opened');
     document.addEventListener("keydown", closePopupEsc);
+    document.addEventListener("mousedown", closePopupOvr);
 };
 
 popupCloseButtonElements.forEach((item) => {
@@ -46,7 +43,7 @@ popupCloseButtonElements.forEach((item) => {
 function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
     document.removeEventListener("keydown", closePopupEsc);
-    document.addEventListener("mousedown", closePopupOvr);
+    document.removeEventListener("mousedown", closePopupOvr);
 };
 
 popupOpenButtonElement.addEventListener('click', () => { openProfilePopup(popupProfileElement) });
